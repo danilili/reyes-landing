@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Aviso de Privacidad · Reyes Martínez</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --plum:#5e3a5f; --plum-deep:#4a2e4b; --plum-soft:#8a6a8b; --plum-mist:#b8a2b9;
+    --paper: oklch(0.965 0.012 70); --paper-2: oklch(0.945 0.018 60); --cream: oklch(0.985 0.008 80);
+    --ink: oklch(0.22 0.02 340); --ink-dim: oklch(0.40 0.02 340); --ink-mute: oklch(0.55 0.02 340);
+    --line: oklch(0.86 0.015 340 / .9); --line-soft: oklch(0.90 0.012 340 / .7);
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--paper);color:var(--ink);font-family:'Inter',system-ui,sans-serif;-webkit-font-smoothing:antialiased;line-height:1.6}
+  a{color:var(--plum);text-decoration:none;border-bottom:1px solid var(--plum-mist);transition:color .2s, border-color .2s}
+  a:hover{color:var(--plum-deep);border-color:var(--plum)}
+  .serif{font-family:'Cormorant Garamond',Georgia,serif}
+
+  nav.top{position:sticky;top:0;z-index:50;backdrop-filter:saturate(1.4) blur(10px);background:oklch(0.965 0.012 70 / .82);border-bottom:1px solid var(--line-soft)}
+  nav.top .inner{display:flex;align-items:center;justify-content:space-between;padding:14px 40px;max-width:1200px;margin:0 auto}
+  nav.top .brand{display:flex;align-items:center;gap:12px;border:0}
+  nav.top .brand img{height:34px;width:auto}
+  nav.top .back{font-size:13.5px;color:var(--ink-dim);border:0}
+  nav.top .back:hover{color:var(--plum)}
+  @media (max-width:720px){ nav.top .inner{padding:14px 24px} }
+
+  main{max-width:760px;margin:0 auto;padding:80px 40px 120px}
+  @media (max-width:720px){ main{padding:48px 24px 80px} }
+
+  .eyebrow{font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--plum);font-weight:500;margin-bottom:20px}
+  h1{font-family:'Cormorant Garamond',serif;font-size:clamp(44px,6vw,68px);font-weight:500;line-height:1.02;letter-spacing:-.018em;color:var(--plum-deep);margin:0}
+  h1 em{font-style:italic;color:var(--plum);font-weight:400}
+  .meta{margin-top:28px;padding-top:20px;border-top:1px solid var(--line);display:flex;gap:40px;font-size:12.5px;color:var(--ink-mute);letter-spacing:.06em}
+  .meta .k{font-weight:500;color:var(--ink-dim);text-transform:uppercase;letter-spacing:.2em;font-size:10.5px;margin-bottom:2px}
+
+  .intro{margin-top:56px;font-family:'Cormorant Garamond',serif;font-size:22px;line-height:1.5;color:var(--plum-deep);font-style:italic;font-weight:500;max-width:52ch;padding-left:22px;border-left:2px solid var(--plum-mist)}
+
+  section.clause{margin-top:56px}
+  section.clause h2{font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:500;line-height:1.15;letter-spacing:-.01em;color:var(--plum-deep);margin:0 0 18px}
+  section.clause h2 .num{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--plum-soft);letter-spacing:.1em;display:block;margin-bottom:8px;font-weight:500;font-style:normal}
+  section.clause p{font-size:15.5px;line-height:1.75;color:var(--ink-dim);margin:0 0 14px;max-width:62ch}
+  section.clause p strong{color:var(--plum-deep);font-weight:500}
+  section.clause ul{list-style:none;padding:0;margin:18px 0 0;display:flex;flex-direction:column;gap:12px;max-width:62ch}
+  section.clause ul li{position:relative;padding-left:26px;font-size:15px;line-height:1.6;color:var(--ink-dim)}
+  section.clause ul li::before{content:"";position:absolute;left:0;top:11px;width:14px;height:1.5px;background:var(--plum-mist)}
+
+  .data-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:22px}
+  .data-card{background:var(--cream);border:1px solid var(--line-soft);border-radius:18px;padding:22px 24px}
+  .data-card .tag{font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--plum);font-weight:500;margin-bottom:10px}
+  .data-card .t{font-family:'Cormorant Garamond',serif;font-size:20px;color:var(--plum-deep);font-weight:500;line-height:1.2;letter-spacing:-.005em}
+  .data-card p{font-size:13.5px;line-height:1.6;color:var(--ink-dim);margin-top:8px}
+  @media (max-width:720px){ .data-grid{grid-template-columns:1fr} }
+
+  .emi{margin-top:22px;background:var(--plum-deep);color:var(--cream);border-radius:22px;padding:30px 32px;position:relative;overflow:hidden}
+  .emi .tag{font-size:10.5px;letter-spacing:.28em;text-transform:uppercase;color:var(--plum-mist);font-weight:500}
+  .emi h3{font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:500;margin:10px 0 14px;letter-spacing:-.005em;line-height:1.2}
+  .emi h3 em{font-style:italic;color:oklch(0.85 0.04 340)}
+  .emi p{font-size:14.5px;line-height:1.65;color:oklch(0.93 0.015 340);margin:0;max-width:56ch}
+  .emi .no{margin-top:16px;display:flex;flex-wrap:wrap;gap:8px}
+  .emi .no span{font-size:11px;letter-spacing:.2em;text-transform:uppercase;padding:7px 12px;border:1px solid oklch(0.5 0.04 340);border-radius:999px;color:oklch(0.88 0.02 340);font-weight:500}
+
+  .contact-box{margin-top:24px;background:var(--cream);border:1px solid var(--line);border-radius:22px;padding:28px 30px;display:grid;grid-template-columns:1fr 1fr;gap:32px}
+  .contact-box .k{font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--plum);font-weight:500;margin-bottom:6px}
+  .contact-box .v{font-family:'Cormorant Garamond',serif;font-size:18px;color:var(--plum-deep);font-weight:500}
+  .contact-box a{border:0}
+  @media (max-width:720px){ .contact-box{grid-template-columns:1fr;gap:22px} }
+
+  footer{margin-top:100px;padding:48px 0 40px;border-top:1px solid var(--line)}
+  footer .inner{max-width:1200px;margin:0 auto;padding:0 40px;display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap}
+  footer img{height:36px;width:auto;opacity:.85}
+  footer .tag{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:15px;color:var(--plum);border:0}
+  footer .note{font-size:12px;color:var(--ink-mute)}
+  @media (max-width:720px){ footer .inner{padding:0 24px} }
+</style>
+</head>
+<body>
+
+<nav class="top">
+  <div class="inner">
+    <a href="index.html" class="brand"><img src="assets/logo.png" alt="Reyes Martínez" /></a>
+    <a href="index.html" class="back">← Regresar al inicio</a>
+  </div>
+</nav>
+
+<main>
+  <div class="eyebrow">Documento legal</div>
+  <h1>Aviso de<br/><em>privacidad</em>.</h1>
+  <div class="meta">
+    <div><div class="k">Responsable</div>Psicóloga Reyes Martínez</div>
+    <div><div class="k">Vigencia</div>Abril 2026</div>
+  </div>
+
+  <p class="intro">Tu confianza es parte esencial del proceso terapéutico. Este documento explica, con claridad, cómo se recaban, usan y protegen tus datos personales.</p>
+
+  <section class="clause">
+    <h2><span class="num">01</span>Responsable de los datos</h2>
+    <p>La Psicóloga <strong>Reyes Martínez</strong>, con domicilio de consulta presencial en <strong>Manuel Acuña #1684A Int. 1, Col. Ladrón de Guevara, Guadalajara, Jalisco</strong>, es responsable del uso y protección de sus datos personales.</p>
+  </section>
+
+  <section class="clause">
+    <h2><span class="num">02</span>¿Para qué fines utilizaremos sus datos personales?</h2>
+    <p>Los datos personales que recabamos de usted (<strong>nombre, número de teléfono y modalidad de cita</strong>) serán utilizados exclusivamente para las siguientes finalidades esenciales para el servicio solicitado:</p>
+    <ul>
+      <li>Agendamiento, confirmación y recordatorio de citas psicológicas.</li>
+      <li>Integración y actualización de su expediente clínico.</li>
+      <li>Envío de información relevante sobre su terapia o enlaces de conexión (en caso de modalidad virtual).</li>
+    </ul>
+  </section>
+
+  <section class="clause">
+    <h2><span class="num">03</span>Uso de WhatsApp y asistente virtual administrativo ("Emi")</h2>
+    <p>Para brindarle una atención más ágil en la gestión de su agenda, utilizamos un asistente virtual (<strong>"Emi"</strong>) a través de WhatsApp. Es importante destacar que Emi es una herramienta de uso estrictamente administrativo.</p>
+    <p>El asistente virtual únicamente procesa datos de contacto (nombre y teléfono) y de logística (fecha, hora y modalidad de la cita).</p>
+
+    <div class="emi">
+      <div class="tag">Emi · Asistente virtual</div>
+      <h3>Emi <em>no solicita</em>, <em>no procesa</em> y <em>no almacena</em>:</h3>
+      <p>Toda la información médica y terapéutica es manejada de forma exclusiva, privada y confidencial directamente por la Psicóloga Reyes durante sus sesiones.</p>
+      <div class="no">
+        <span>Información clínica</span>
+        <span>Diagnósticos</span>
+        <span>Síntomas</span>
+        <span>Motivos de consulta</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="clause">
+    <h2><span class="num">04</span>¿Qué datos personales utilizaremos para estos fines?</h2>
+    <p>Para llevar a cabo las finalidades descritas, clasificamos los datos en dos categorías:</p>
+    <div class="data-grid">
+      <div class="data-card">
+        <div class="tag">Categoría 01</div>
+        <div class="t">Datos administrativos</div>
+        <p>Gestionados por nuestro sistema de citas. Incluyen nombre completo y número de teléfono celular.</p>
+      </div>
+      <div class="data-card">
+        <div class="tag">Categoría 02</div>
+        <div class="t">Datos sensibles y de salud</div>
+        <p>Gestionados exclusivamente por la terapeuta. Información clínica, estado emocional y antecedentes recabados única y directamente por la Psicóloga Reyes durante la sesión en el consultorio o videollamada. Ningún sistema automatizado tiene acceso a esta información.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="clause">
+    <h2><span class="num">05</span>¿Cómo puede acceder, rectificar o cancelar sus datos personales?</h2>
+    <p>Usted tiene derecho a conocer qué datos personales tenemos de usted, para qué los utilizamos y las condiciones del uso que les damos. Asimismo, es su derecho solicitar la corrección de su información, o bien, pedir que la eliminemos de nuestros registros <em>(Derechos ARCO)</em>.</p>
+    <p>Para ejercer cualquiera de estos derechos, puede contactarnos por los siguientes medios:</p>
+    <div class="contact-box">
+      <div>
+        <div class="k">WhatsApp</div>
+        <div class="v"><a href="https://wa.me/523321756379" target="_blank" rel="noopener">+52 33 2175 6379</a></div>
+      </div>
+      <div>
+        <div class="k">Correo electrónico</div>
+        <div class="v"><a href="mailto:reyesmartinezdiaz@gmail.com">reyesmartinezdiaz@gmail.com</a></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="inner">
+    <a href="index.html" style="border:0"><img src="assets/logo.png" alt="Reyes Martínez" /></a>
+    <div class="tag">Psicoterapia con cuerpo, presencia y profundidad.</div>
+    <div class="note">© 2026 Reyes Martínez Díaz</div>
+  </div>
+</footer>
+
+</body>
+</html>
