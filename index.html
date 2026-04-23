@@ -90,7 +90,7 @@
   .btn-primary{background:var(--plum);color:var(--cream);padding:15px 26px;border-radius:999px;font-size:14.5px;font-weight:500;letter-spacing:.01em;display:inline-flex;align-items:center;gap:10px;transition:background .2s, transform .2s}
   .btn-primary:hover{background:var(--plum-deep);transform:translateY(-1px)}
   .btn-primary svg{width:17px;height:17px}
-  .btn-ghost{padding:15px 22px;font-size:14px;color:var(--ink-dim);border-bottom:1px solid var(--plum-mist);border-radius:0;transition:color .2s, border-color .2s}
+  .btn-ghost{padding:18px 26px;font-size:16.8px;color:var(--ink-dim);border-bottom:1px solid var(--plum-mist);border-radius:0;transition:color .2s, border-color .2s}
   .btn-ghost:hover{color:var(--plum);border-color:var(--plum)}
 
   /* hero art */
@@ -111,7 +111,8 @@
 
   @media (max-width:900px){
     .hero .wrap{grid-template-columns:1fr;gap:48px}
-    .hero-art{max-width:440px;margin:0 auto;border-radius:180px 180px 20px 20px}
+    .hero-text{order:1}
+    .hero-art{order:2;max-width:440px;margin:0 auto;border-radius:180px 180px 20px 20px}
     .hero{padding:48px 0 72px}
   }
 
@@ -234,12 +235,16 @@
   .contact-card .row .k{font-size:11px;color:var(--ink-mute);letter-spacing:.22em;text-transform:uppercase;font-weight:500}
   .contact-card .row .v{font-family:'Cormorant Garamond',serif;font-size:22px;color:var(--plum-deep);letter-spacing:.005em;margin-top:2px;font-weight:500}
   .contact-card .row .v.small{font-size:15px;font-family:'Inter',sans-serif;line-height:1.5;color:var(--ink-dim);font-weight:400}
+  .contact-card .row .v.schedule{display:grid;grid-template-columns:max-content 1fr;column-gap:18px;row-gap:3px;margin-top:4px}
+  .contact-card .row .v.schedule .h{font-variant-numeric:tabular-nums;color:var(--plum-deep)}
   .contact-card .btn-primary{width:100%;margin-top:24px;justify-content:center;padding:18px}
 
   /* alternate contact channels */
   .alt-contact{margin-top:22px;padding-top:22px;border-top:1px solid var(--line-soft)}
   .alt-contact .label{font-size:11px;color:var(--ink-mute);letter-spacing:.22em;text-transform:uppercase;font-weight:500;text-align:center;margin-bottom:16px}
-  .alt-contact .links{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+  .alt-contact .links{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}
+  @media (max-width:720px){ .alt-contact .links{grid-template-columns:repeat(3,1fr)} }
+  @media (max-width:480px){ .alt-contact .links{grid-template-columns:repeat(2,1fr)} }
   .alt-contact a{
     display:flex;flex-direction:column;align-items:center;gap:10px;
     padding:18px 10px;border-radius:16px;
@@ -297,6 +302,9 @@
 <!-- ————— HERO ————— -->
 <section class="hero" id="top">
   <div class="wrap">
+    <div class="hero-art">
+      <img src="assets/reyes.jpeg" alt="Reyes Martínez Díaz" class="portrait-img" />
+    </div>
     <div class="hero-text">
       <div class="eyebrow">Psicoterapia Gestalt · 25 años</div>
       <h1>Psicoterapia<br/>con cuerpo,<br/><em>presencia</em> y <em>profundidad</em>.</h1>
@@ -309,11 +317,9 @@
         <a class="btn-ghost" href="#sobre">Conoce mi trabajo →</a>
       </div>
     </div>
-    <div class="hero-art">
-      <img src="assets/reyes.jpeg" alt="Reyes Martínez Díaz" class="portrait-img" />
-    </div>
   </div>
 </section>
+
 
 <!-- ————— SOBRE MÍ ————— -->
 <section class="about" id="sobre">
@@ -328,7 +334,7 @@
         </div>
         <div>
           <div class="n">3</div>
-          <div class="l">Modalidades: individual, parejas y grupos</div>
+          <div class="l">Modalidades: Individual, Pareja y Grupos</div>
         </div>
       </div>
       <div class="sig">
@@ -345,6 +351,19 @@
   </div>
 </section>
 
+<!-- ————— IMAGE STRIP · HERO → SOBRE ————— -->
+<div class="strip">
+  <div class="cell">
+    <img src="assets/Inicio 2 consultorio (1).jpg" alt="Consultorio de Reyes Martínez" />
+    <div class="cap">El consultorio</div>
+  </div>
+  <div class="cell portrait">
+    <img src="assets/Inicio 5 inauguracion.jpg" alt="Inauguración del consultorio" />
+    <div class="cap">Casa Séptimo Rumbo</div>
+  </div>
+</div>
+
+
 <!-- ————— ENFOQUES ————— -->
 <section class="methods" id="enfoques">
   <div class="wrap">
@@ -356,8 +375,8 @@
     <div class="method-grid">
       <div class="method">
         <div class="idx">01</div>
-        <h3>Psicoterapia Gestalt</h3>
-        <p>El corazón de mi práctica: un enfoque del aquí y ahora, centrado en la experiencia directa, el contacto y la consciencia plena.</p>
+        <h3>Psicoterapia Guestalt</h3>
+        <p>El corazón de mi práctica: un enfoque del aquí y ahora, centrado en la experiencia directa, el contacto, la consciencia plena y la responsablidad.</p>
       </div>
       <div class="method">
         <div class="idx">02</div>
@@ -419,7 +438,7 @@
   <div class="wrap">
     <div class="head">
       <div class="eyebrow">Testimonios</div>
-      <h2>Lo que han<br/><em>compartido</em> conmigo.</h2>
+      <h2>Relatos de <br/><em>Procesos</em> Acompañados.</h2>
     </div>
     <div class="testim-grid">
       <article class="t-card">
@@ -457,22 +476,29 @@
       <p class="lead">Escríbeme por WhatsApp para agendar una primera sesión o resolver cualquier duda. Será un gusto acompañarte.</p>
     </div>
     <div class="contact-card">
-      <div class="row">
+      <a class="row" href="https://maps.app.goo.gl/Svsfe6hc4YXZnq8M7" target="_blank" rel="noopener">
         <div class="ic">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.8-.9-2.1-1s-.5-.1-.7.1-.8 1-.9 1.2-.3.2-.6 0c-.3-.1-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.6-2.1-.2-.3 0-.5.1-.6l.5-.5c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5L9.4 7c-.2-.5-.5-.4-.7-.4H8c-.2 0-.6.1-.9.4-.3.3-1.2 1.2-1.2 2.9 0 1.7 1.2 3.4 1.4 3.6.2.2 2.4 3.7 5.9 5.2.8.4 1.5.6 2 .7.8.3 1.6.2 2.2.1.7-.1 1.8-.7 2.1-1.5.3-.7.3-1.4.2-1.5-.1-.2-.3-.3-.6-.4zM12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.4 5L2 22l5.2-1.4c1.5.8 3.1 1.2 4.8 1.2 5.5 0 10-4.5 10-10S17.5 2 12 2z"/></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
         </div>
         <div>
-          <div class="k">WhatsApp</div>
-          <div class="v">+52 33 2175 6379</div>
+          <div class="k">Ubicación</div>
+          <div class="v">Encuéntrame en Guadalajara</div>
         </div>
-      </div>
+      </a>
       <div class="row">
         <div class="ic">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
         </div>
         <div>
           <div class="k">Horarios</div>
-          <div class="v small">Lunes a viernes · 12:00 – 16:00<br/>Sábados · 08:00 – 11:00</div>
+          <div class="v small schedule">
+            <span class="d">Lunes</span><span class="h">11:00 – 16:00</span>
+            <span class="d">Martes</span><span class="h">11:00 – 16:00</span>
+            <span class="d">Miércoles</span><span class="h">11:00 – 19:00</span>
+            <span class="d">Jueves</span><span class="h">11:00 – 16:00</span>
+            <span class="d">Viernes</span><span class="h">11:00 – 19:00</span>
+            <span class="d">Sábados</span><span class="h">08:00 – 13:00</span>
+          </div>
         </div>
       </div>
       <div class="row">
@@ -481,7 +507,7 @@
         </div>
         <div>
           <div class="k">Modalidades</div>
-          <div class="v small">Sesiones presenciales y en línea.<br/>Individual · Parejas · Grupos.</div>
+          <div class="v small">Sesiones presenciales y en línea.<br/>Individual · Pareja · Grupos.</div>
         </div>
       </div>
       <a class="btn-primary" href="https://wa.me/523321756379?text=Hola%20Reyes%2C%20me%20gustar%C3%ADa%20agendar%20una%20sesi%C3%B3n" target="_blank" rel="noopener">
@@ -492,26 +518,40 @@
       <div class="alt-contact">
         <div class="label">O también puedes encontrarme en</div>
         <div class="links">
-          <a href="https://instagram.com/reyesmartinez.gestalt" target="_blank" rel="noopener" aria-label="Instagram">
+          <a href="https://instagram.com/armoiareyesmartinez" target="_blank" rel="noopener" aria-label="Instagram">
             <div class="ic-alt">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
             </div>
             <div class="lab">Instagram</div>
-            <div class="sub">@reyesmartinez<br/>.gestalt</div>
+            <div class="sub">@armoiareyes<br/>martinez</div>
           </a>
-          <a href="mailto:contacto@reyesmartinez.mx" aria-label="Enviar correo">
+          <a href="mailto:reyesmartinezpsicoterapia@gmail.com" aria-label="Enviar correo">
             <div class="ic-alt">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
             </div>
             <div class="lab">Correo</div>
             <div class="sub">Enviar<br/>mensaje</div>
           </a>
-          <a href="https://maps.google.com/?q=Reyes+Martinez+Psicoterapia" target="_blank" rel="noopener" aria-label="Google Maps">
+          <a href="https://clearly.com" target="_blank" rel="noopener" aria-label="Clearly">
             <div class="ic-alt">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
             </div>
-            <div class="lab">Google Maps</div>
-            <div class="sub">Ver<br/>ubicación</div>
+            <div class="lab">Clearly</div>
+            <div class="sub">Mi perfil<br/>profesional</div>
+          </a>
+          <a href="curriculum.html" aria-label="Currículum">
+            <div class="ic-alt">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M8 13h8"/><path d="M8 17h8"/></svg>
+            </div>
+            <div class="lab">Currículum</div>
+            <div class="sub">Formación<br/>y trayectoria</div>
+          </a>
+          <a href="https://www.youtube.com/@ArmoiaReyesMartinezOficial" target="_blank" rel="noopener" aria-label="YouTube">
+            <div class="ic-alt">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M21.58 7.19a2.78 2.78 0 0 0-1.95-1.97C17.88 4.75 12 4.75 12 4.75s-5.88 0-7.63.47A2.78 2.78 0 0 0 2.42 7.19C2 9 2 12 2 12s0 3 .42 4.81a2.78 2.78 0 0 0 1.95 1.97c1.75.47 7.63.47 7.63.47s5.88 0 7.63-.47a2.78 2.78 0 0 0 1.95-1.97C22 15 22 12 22 12s0-3-.42-4.81zM10 15.5v-7l6 3.5-6 3.5z"/></svg>
+            </div>
+            <div class="lab">YouTube</div>
+            <div class="sub">@ArmoiaReyes<br/>MartinezOficial</div>
           </a>
         </div>
       </div>
