@@ -1,0 +1,294 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Test de Eneagrama · Reyes Martínez</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --plum:#5e3a5f; --plum-deep:#4a2e4b; --plum-soft:#8a6a8b; --plum-mist:#b8a2b9;
+    --paper: oklch(0.965 0.012 70); --paper-2: oklch(0.945 0.018 60); --cream: oklch(0.985 0.008 80);
+    --ink: oklch(0.22 0.02 340); --ink-dim: oklch(0.40 0.02 340); --ink-mute: oklch(0.55 0.02 340);
+    --line: oklch(0.86 0.015 340 / .9); --line-soft: oklch(0.90 0.012 340 / .7);
+    --danger: #b0264a;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--paper);color:var(--ink);font-family:'Inter',system-ui,sans-serif;-webkit-font-smoothing:antialiased;line-height:1.6}
+  a{color:var(--plum);text-decoration:none;border-bottom:1px solid var(--plum-mist);transition:color .2s, border-color .2s}
+  a:hover{color:var(--plum-deep);border-color:var(--plum)}
+  .serif{font-family:'Cormorant Garamond',Georgia,serif}
+
+  nav.top{position:sticky;top:0;z-index:50;backdrop-filter:saturate(1.4) blur(10px);background:oklch(0.965 0.012 70 / .82);border-bottom:1px solid var(--line-soft)}
+  nav.top .inner{display:flex;align-items:center;justify-content:space-between;padding:14px 40px;max-width:1200px;margin:0 auto}
+  nav.top .brand{display:flex;align-items:center;gap:12px;border:0}
+  nav.top .brand img{height:34px;width:auto}
+  nav.top .back{font-size:13.5px;color:var(--ink-dim);border:0}
+  nav.top .back:hover{color:var(--plum)}
+  @media (max-width:720px){ nav.top .inner{padding:14px 24px} }
+
+  main{max-width:760px;margin:0 auto;padding:80px 40px 120px}
+  @media (max-width:720px){ main{padding:48px 24px 80px} }
+
+  .eyebrow{font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--plum);font-weight:500;margin-bottom:20px}
+  h1{font-family:'Cormorant Garamond',serif;font-size:clamp(44px,6vw,68px);font-weight:500;line-height:1.02;letter-spacing:-.018em;color:var(--plum-deep);margin:0}
+  h1 em{font-style:italic;color:var(--plum);font-weight:400}
+  .meta{margin-top:28px;padding-top:20px;border-top:1px solid var(--line);display:flex;gap:40px;font-size:12.5px;color:var(--ink-mute);letter-spacing:.06em;flex-wrap:wrap}
+  .meta .k{font-weight:500;color:var(--ink-dim);text-transform:uppercase;letter-spacing:.2em;font-size:10.5px;margin-bottom:2px}
+
+  .intro{margin-top:56px;font-family:'Cormorant Garamond',serif;font-size:22px;line-height:1.5;color:var(--plum-deep);font-style:italic;font-weight:500;max-width:52ch;padding-left:22px;border-left:2px solid var(--plum-mist)}
+
+  section.clause{margin-top:56px}
+  section.clause h2{font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:500;line-height:1.15;letter-spacing:-.01em;color:var(--plum-deep);margin:0 0 18px}
+  section.clause h2 .num{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--plum-soft);letter-spacing:.1em;display:block;margin-bottom:8px;font-weight:500;font-style:normal}
+  section.clause p{font-size:15.5px;line-height:1.75;color:var(--ink-dim);margin:0 0 14px;max-width:62ch}
+  section.clause p strong{color:var(--plum-deep);font-weight:500}
+  section.clause ul{list-style:none;padding:0;margin:18px 0 0;display:flex;flex-direction:column;gap:12px;max-width:62ch}
+  section.clause ul li{position:relative;padding-left:26px;font-size:15px;line-height:1.6;color:var(--ink-dim)}
+  section.clause ul li::before{content:"";position:absolute;left:0;top:11px;width:14px;height:1.5px;background:var(--plum-mist)}
+
+  /* ——— Form fields ——— */
+  .field-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:6px}
+  .field-grid label{display:flex;flex-direction:column;gap:6px}
+  .field-grid label.full{grid-column:1/-1}
+  .field-grid .lk{font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--plum);font-weight:500}
+  .field-grid input,textarea{font-family:inherit;font-size:15px;padding:14px 16px;border:1px solid var(--line);border-radius:12px;background:var(--cream);color:var(--ink);transition:border-color .2s,box-shadow .2s;width:100%}
+  .field-grid input:focus,textarea:focus{outline:none;border-color:var(--plum);box-shadow:0 0 0 3px oklch(0.85 0.04 340 / .35)}
+  textarea{resize:vertical;min-height:120px}
+  @media (max-width:720px){ .field-grid{grid-template-columns:1fr} }
+
+  /* ——— Option cards ——— */
+  .options{display:flex;flex-direction:column;gap:12px;margin-top:6px}
+  .option{display:flex;gap:18px;padding:22px 24px;background:var(--cream);border:1px solid var(--line-soft);border-radius:18px;cursor:pointer;transition:border-color .2s, background .2s, box-shadow .2s;align-items:flex-start}
+  .option:hover{border-color:var(--plum-mist)}
+  .option input{margin:4px 0 0;accent-color:var(--plum);width:18px;height:18px;flex-shrink:0;cursor:pointer}
+  .option-body{flex:1}
+  .option .letter{font-family:'Cormorant Garamond',serif;font-size:22px;color:var(--plum);font-weight:500;font-style:italic;letter-spacing:.01em;margin-bottom:4px;line-height:1}
+  .option p{font-size:14.5px;line-height:1.7;color:var(--ink-dim);margin:0;max-width:none}
+  .option:has(input:checked){border-color:var(--plum);background:oklch(0.97 0.016 340);box-shadow:0 0 0 1px var(--plum) inset}
+  .option:has(input:checked) .letter{color:var(--plum-deep)}
+
+  .hint{font-size:13.5px;color:var(--ink-mute);margin-top:14px;font-style:italic;max-width:62ch}
+
+  /* ——— Submit ——— */
+  .actions{margin-top:48px;display:flex;flex-direction:column;align-items:flex-start;gap:14px}
+  .submit-btn{background:var(--plum);color:var(--cream);border:0;padding:17px 32px;border-radius:999px;font-size:15px;font-weight:500;letter-spacing:.01em;cursor:pointer;transition:background .2s,transform .2s;display:inline-flex;align-items:center;gap:10px;font-family:inherit}
+  .submit-btn:hover{background:var(--plum-deep);transform:translateY(-1px)}
+  .submit-btn svg{width:17px;height:17px}
+
+  .err{color:var(--danger);font-size:13.5px;background:oklch(0.96 0.03 20);border:1px solid oklch(0.86 0.05 20);border-radius:12px;padding:12px 16px;display:none}
+  .err.on{display:block}
+
+  .ok{color:var(--plum-deep);font-size:14px;background:oklch(0.96 0.02 340);border:1px solid var(--plum-mist);border-radius:12px;padding:14px 18px;display:none;line-height:1.55}
+  .ok.on{display:block}
+  .ok strong{color:var(--plum)}
+
+  footer{margin-top:100px;padding:48px 0 40px;border-top:1px solid var(--line)}
+  footer .inner{max-width:1200px;margin:0 auto;padding:0 40px;display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap}
+  footer img{height:36px;width:auto;opacity:.85}
+  footer .tag{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:15px;color:var(--plum);border:0}
+  footer .note{font-size:12px;color:var(--ink-mute)}
+  @media (max-width:720px){ footer .inner{padding:0 24px} }
+</style>
+</head>
+<body>
+
+<nav class="top">
+  <div class="inner">
+    <a href="index.html" class="brand"><img src="assets/logo.png" alt="Reyes Martínez" /></a>
+    <a href="index.html" class="back">← Regresar al inicio</a>
+  </div>
+</nav>
+
+<main>
+  <div class="eyebrow">Test de autoconocimiento</div>
+  <h1>¿Quieres<br/><em>conocerte</em>?</h1>
+  <div class="meta">
+    <div><div class="k">Instrumento</div>TRIE Riso-Hudson</div>
+    <div><div class="k">Duración</div>≈ 5 minutos</div>
+    <div><div class="k">Cortesía de</div>Reyes Martínez</div>
+  </div>
+
+  <p class="intro">Un test rápido de identificación en el Eneagrama. Al terminar, recibirás una orientación personalizada basada en tus respuestas y la situación que estás atravesando.</p>
+
+  <section class="clause">
+    <h2><span class="num">01</span>Antes de comenzar</h2>
+    <p>Para obtener un resultado correcto, es importante que leas y sigas estas sencillas instrucciones:</p>
+    <ul>
+      <li>En cada uno de los dos grupos, elige el párrafo que refleje mejor tus actitudes y tu comportamiento generales, según tu forma de ser la mayor parte de tu vida.</li>
+      <li>Basta con estar de acuerdo en un <strong>80 o 90 por ciento</strong> con lo que dice el párrafo. No lo rechaces por una sola palabra o frase; mira el cuadro general.</li>
+      <li>No analices demasiado. Elige lo que tu <em>instinto visceral</em> te dice, aunque no coincidas con todo.</li>
+      <li>Si no logras decidir, puedes elegir dos párrafos, <strong>pero solo en uno de los grupos</strong>.</li>
+    </ul>
+  </section>
+
+  <form id="trie-form" novalidate>
+    <section class="clause">
+      <h2><span class="num">02</span>Tus datos</h2>
+      <p>Para enviarte una orientación personalizada, necesito algunos datos básicos.</p>
+      <div class="field-grid">
+        <label class="full">
+          <span class="lk">Nombre completo</span>
+          <input type="text" name="nombre" required autocomplete="name" />
+        </label>
+        <label>
+          <span class="lk">Fecha de nacimiento</span>
+          <input type="date" name="nacimiento" required />
+        </label>
+        <label>
+          <span class="lk">Correo electrónico</span>
+          <input type="email" name="correo" required autocomplete="email" />
+        </label>
+      </div>
+    </section>
+
+    <section class="clause">
+      <h2><span class="num">03</span>Grupo I</h2>
+      <p>Elige el párrafo que mejor te describa. Si dudas entre dos, puedes marcar ambos (solo en este grupo <em>o</em> en el siguiente, no en los dos).</p>
+      <div class="options">
+        <label class="option">
+          <input type="checkbox" name="g1" value="A" />
+          <div class="option-body">
+            <div class="letter">A</div>
+            <p>Tiendo a ser bastante independiente y confiado: pienso que la vida va mejor cuando la esperas de frente. Me fijo objetivos, me comprometo y deseo que ocurran las cosas. No me gusta quedarme sentado, prefiero realizar algo grande y dejar mi huella. No busco necesariamente confrontaciones, pero no me dejo llevar ni empujar tampoco. La mayor parte del tiempo sé lo que quiero y voy a por ello. Tiendo a trabajar mucho y a disfrutar mucho.</p>
+          </div>
+        </label>
+        <label class="option">
+          <input type="checkbox" name="g1" value="B" />
+          <div class="option-body">
+            <div class="letter">B</div>
+            <p>Tiendo a estar callado, y estoy acostumbrado a estar solo. Normalmente no atraigo mucho la atención en el aspecto social, y por lo general procuro no imponerme por la fuerza. No me siento cómodo destacando sobre los demás ni siendo competitivo. Probablemente muchos dirían que tengo algo de soñador, pues disfruto con mi imaginación. Puedo estar bastante a gusto sin pensar que tengo que ser activo todo el tiempo.</p>
+          </div>
+        </label>
+        <label class="option">
+          <input type="checkbox" name="g1" value="C" />
+          <div class="option-body">
+            <div class="letter">C</div>
+            <p>Tiendo a ser muy responsable y entregado. Me siento fatal si no cumplo mis compromisos o no hago lo que se espera de mí. Deseo que los demás sepan que estoy por ellos y que haré todo lo que crea que es mejor por ellos. Con frecuencia hago grandes sacrificios personales por el bien de otros, lo sepan o no lo sepan. No suelo cuidar bien de mí mismo; hago el trabajo que hay que hacer y me relajo (y hago lo que realmente deseo) si me queda tiempo.</p>
+          </div>
+        </label>
+      </div>
+    </section>
+
+    <section class="clause">
+      <h2><span class="num">04</span>Grupo II</h2>
+      <p>Elige el párrafo que mejor te describa.</p>
+      <div class="options">
+        <label class="option">
+          <input type="checkbox" name="g2" value="X" />
+          <div class="option-body">
+            <div class="letter">X</div>
+            <p>Soy una persona que normalmente mantiene una actitud positiva y piensa que las cosas se van a resolver para mejor. Suelo entusiasmarme por las cosas y no me cuesta encontrar en qué ocuparme. Me gusta estar con gente y ayudar a otros a ser felices; me agrada compartir con ellos mi bienestar. (No siempre me siento fabulosamente bien, pero trato de que nadie se dé cuenta.) Sin embargo, mantener esta actitud positiva ha significado a veces dejar pasar demasiado tiempo sin ocuparme de mis problemas.</p>
+          </div>
+        </label>
+        <label class="option">
+          <input type="checkbox" name="g2" value="Y" />
+          <div class="option-body">
+            <div class="letter">Y</div>
+            <p>Soy una persona que tiene fuertes sentimientos respecto a las cosas; la mayoría de la gente lo nota cuando me siento desgraciado por algo. Sé ser reservado con los demás, pero soy más sensible de lo que dejo ver. Deseo saber a qué atenerme con los demás y con quiénes y con qué puedo contar; la mayoría de las personas tienen muy claro a qué atenerse conmigo. Cuando estoy alterado por algo deseo que los demás reaccionen y se emocionen tanto como yo. Conozco las reglas, pero no quiero que me digan lo que he de hacer. Quiero decidir por mí mismo.</p>
+          </div>
+        </label>
+        <label class="option">
+          <input type="checkbox" name="g2" value="Z" />
+          <div class="option-body">
+            <div class="letter">Z</div>
+            <p>Tiendo a controlarme y a ser lógico, me desagrada hacer frente a los sentimientos. Soy eficiente, incluso perfeccionista, y prefiero trabajar solo. Cuando hay problemas o conflictos personales trato de no involucrar mis sentimientos. Algunos dicen que soy demasiado frío y objetivo, pero no quiero que mis reacciones emocionales me distraigan de lo que realmente me importa. Por lo general, no muestro mis emociones cuando otras personas «me fastidian».</p>
+          </div>
+        </label>
+      </div>
+    </section>
+
+    <section class="clause">
+      <h2><span class="num">05</span>La situación que te preocupa</h2>
+      <p>Si quieres, cuéntame brevemente la situación que estás atravesando en este momento. Esto me permitirá darte una orientación más precisa.</p>
+      <textarea name="situacion" placeholder="Escribe aquí lo que te gustaría compartir (opcional)…"></textarea>
+    </section>
+
+    <div class="actions">
+      <div id="err" class="err"></div>
+      <div id="ok" class="ok"></div>
+      <button type="submit" class="submit-btn">
+        Enviar mis respuestas
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
+      </button>
+      <p class="hint">Al enviar, se abrirá tu aplicación de correo con un mensaje ya preparado para Reyes. Solo tendrás que darle <strong>Enviar</strong>.</p>
+    </div>
+  </form>
+</main>
+
+<footer>
+  <div class="inner">
+    <a href="index.html" style="border:0"><img src="assets/logo.png" alt="Reyes Martínez" /></a>
+    <div class="tag">Psicoterapia con cuerpo, presencia y profundidad.</div>
+    <div class="note">© 2026 Reyes Martínez Díaz</div>
+  </div>
+</footer>
+
+<script>
+  const DEST = 'reyesmartinezpsicoterapia@gmail.com';
+  const form = document.getElementById('trie-form');
+  const errBox = document.getElementById('err');
+  const okBox = document.getElementById('ok');
+
+  function showErr(msg){ errBox.textContent = msg; errBox.classList.add('on'); okBox.classList.remove('on'); errBox.scrollIntoView({behavior:'smooth', block:'center'}); }
+  function showOk(msg){ okBox.innerHTML = msg; okBox.classList.add('on'); errBox.classList.remove('on'); }
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    errBox.classList.remove('on');
+    okBox.classList.remove('on');
+
+    const data = new FormData(form);
+    const nombre = (data.get('nombre') || '').toString().trim();
+    const nacimiento = (data.get('nacimiento') || '').toString().trim();
+    const correo = (data.get('correo') || '').toString().trim();
+    const situacion = (data.get('situacion') || '').toString().trim();
+    const g1 = data.getAll('g1');
+    const g2 = data.getAll('g2');
+
+    if(!nombre){ return showErr('Por favor escribe tu nombre completo.'); }
+    if(!nacimiento){ return showErr('Por favor indica tu fecha de nacimiento.'); }
+    if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(correo)){ return showErr('El correo electrónico no es válido.'); }
+    if(g1.length === 0){ return showErr('Elige al menos un párrafo en el Grupo I.'); }
+    if(g2.length === 0){ return showErr('Elige al menos un párrafo en el Grupo II.'); }
+    if(g1.length > 2 || g2.length > 2){ return showErr('Puedes elegir como máximo dos opciones por grupo.'); }
+    if(g1.length === 2 && g2.length === 2){ return showErr('Si dudas, puedes elegir dos opciones en un grupo, pero solo en uno de los dos.'); }
+
+    const fechaFmt = nacimiento ? new Date(nacimiento + 'T00:00:00').toLocaleDateString('es-MX',{year:'numeric',month:'long',day:'numeric'}) : nacimiento;
+
+    const subject = `TRIE Eneagrama · ${nombre}`;
+    const lines = [
+      'Hola Reyes,',
+      '',
+      'Te comparto mis respuestas del Test Rápido de Identificación en el Eneagrama:',
+      '',
+      '— DATOS —',
+      `Nombre: ${nombre}`,
+      `Fecha de nacimiento: ${fechaFmt}`,
+      `Correo: ${correo}`,
+      '',
+      '— RESPUESTAS —',
+      `Grupo I: ${g1.join(', ')}`,
+      `Grupo II: ${g2.join(', ')}`,
+      `Resultado: ${g1.join('/')}-${g2.join('/')}`,
+      ''
+    ];
+    if(situacion){
+      lines.push('— SITUACIÓN ACTUAL —', situacion, '');
+    }
+    lines.push('Gracias, me interesa tu orientación.');
+
+    const body = lines.join('\n');
+    const mailto = `mailto:${DEST}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+    showOk(`Abriendo tu aplicación de correo con el mensaje listo para <strong>${DEST}</strong>. Si no se abre automáticamente, <a href="${mailto}">haz clic aquí</a>.`);
+    window.location.href = mailto;
+  });
+</script>
+
+</body>
+</html>
