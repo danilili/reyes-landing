@@ -332,9 +332,7 @@
       const result = await response.json();
 
       if (response.ok && result.success) {
-        form.style.display = 'none';
-        showOk('<strong>¡Gracias!</strong> Tus respuestas se enviaron correctamente. Reyes recibirá tu información y te contactará en los próximos días con una orientación personalizada al correo que indicaste.');
-        window.scrollTo({top: document.querySelector('main').offsetTop - 40, behavior: 'smooth'});
+        window.location.href = 'gracias.html';
       } else {
         setLoading(false);
         resetCaptcha();

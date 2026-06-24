@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta name="robots" content="noindex" />
+<title>¡Gracias! · Reyes Martínez</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --plum:#5e3a5f; --plum-deep:#4a2e4b; --plum-soft:#8a6a8b; --plum-mist:#b8a2b9;
+    --paper: oklch(0.965 0.012 70); --paper-2: oklch(0.945 0.018 60); --cream: oklch(0.985 0.008 80);
+    --ink: oklch(0.22 0.02 340); --ink-dim: oklch(0.40 0.02 340); --ink-mute: oklch(0.55 0.02 340);
+    --line: oklch(0.86 0.015 340 / .9); --line-soft: oklch(0.90 0.012 340 / .7);
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--paper);color:var(--ink);font-family:'Inter',system-ui,sans-serif;-webkit-font-smoothing:antialiased;line-height:1.6;min-height:100vh;display:flex;flex-direction:column}
+  a{color:var(--plum);text-decoration:none;transition:color .2s, border-color .2s}
+  a:hover{color:var(--plum-deep)}
+  .serif{font-family:'Cormorant Garamond',Georgia,serif}
+
+  nav.top{position:sticky;top:0;z-index:50;backdrop-filter:saturate(1.4) blur(10px);background:oklch(0.965 0.012 70 / .82);border-bottom:1px solid var(--line-soft)}
+  nav.top .inner{display:flex;align-items:center;justify-content:space-between;padding:14px 40px;max-width:1200px;margin:0 auto}
+  nav.top .brand{display:flex;align-items:center;gap:12px;border:0}
+  nav.top .brand img{height:34px;width:auto}
+  nav.top .back{font-size:13.5px;color:var(--ink-dim);border:0}
+  nav.top .back:hover{color:var(--plum)}
+  @media (max-width:720px){ nav.top .inner{padding:14px 24px} }
+
+  main{flex:1;display:flex;align-items:center;justify-content:center;max-width:680px;margin:0 auto;padding:80px 40px 100px;text-align:center}
+  @media (max-width:720px){ main{padding:56px 24px 72px} }
+
+  .card{display:flex;flex-direction:column;align-items:center}
+
+  .mark{
+    width:96px;height:96px;border-radius:50%;
+    background:oklch(0.96 0.02 340);border:1px solid var(--plum-mist);
+    display:flex;align-items:center;justify-content:center;margin-bottom:36px;
+    box-shadow:0 20px 50px -28px oklch(0.3 0.05 340 / .5);
+    animation:pop .6s cubic-bezier(.2,.8,.2,1) both;
+  }
+  .mark svg{width:42px;height:42px;color:var(--plum)}
+  .mark svg path{
+    stroke-dasharray:48;stroke-dashoffset:48;
+    animation:draw .7s .35s ease forwards;
+  }
+  @keyframes pop{0%{transform:scale(.6);opacity:0}100%{transform:scale(1);opacity:1}}
+  @keyframes draw{to{stroke-dashoffset:0}}
+
+  .eyebrow{font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--plum);font-weight:500;margin-bottom:20px}
+  h1{font-family:'Cormorant Garamond',serif;font-size:clamp(40px,6vw,62px);font-weight:500;line-height:1.04;letter-spacing:-.018em;color:var(--plum-deep);margin:0}
+  h1 em{font-style:italic;color:var(--plum);font-weight:400}
+
+  .lead{margin-top:24px;font-size:16.5px;line-height:1.7;color:var(--ink-dim);max-width:46ch}
+  .lead strong{color:var(--plum-deep);font-weight:500}
+
+  .next{margin-top:36px;padding:22px 26px;background:var(--cream);border:1px solid var(--line-soft);border-radius:18px;max-width:48ch}
+  .next .k{font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--plum);font-weight:500;margin-bottom:8px}
+  .next p{margin:0;font-size:14.5px;line-height:1.65;color:var(--ink-dim)}
+
+  .actions{margin-top:40px;display:flex;gap:14px;flex-wrap:wrap;justify-content:center}
+  .btn-primary{background:var(--plum);color:var(--cream);padding:15px 28px;border-radius:999px;font-size:14.5px;font-weight:500;letter-spacing:.01em;display:inline-flex;align-items:center;gap:10px;transition:background .2s, transform .2s}
+  .btn-primary:hover{background:var(--plum-deep);transform:translateY(-1px);color:var(--cream)}
+  .btn-ghost{padding:15px 24px;border-radius:999px;border:1px solid var(--line);color:var(--ink-dim);font-size:14.5px;font-weight:500;display:inline-flex;align-items:center;gap:8px;transition:border-color .2s,color .2s}
+  .btn-ghost:hover{border-color:var(--plum-mist);color:var(--plum)}
+
+  footer{margin-top:auto;padding:48px 0 40px;border-top:1px solid var(--line)}
+  footer .inner{max-width:1200px;margin:0 auto;padding:0 40px;display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap}
+  footer img{height:36px;width:auto;opacity:.85}
+  footer .tag{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:15px;color:var(--plum);border:0}
+  footer .note{font-size:12px;color:var(--ink-mute)}
+  @media (max-width:720px){ footer .inner{padding:0 24px} }
+</style>
+</head>
+<body>
+
+<nav class="top">
+  <div class="inner">
+    <a href="index.html" class="brand"><img src="assets/logo.png" alt="Reyes Martínez" /></a>
+    <a href="index.html" class="back">← Regresar al inicio</a>
+  </div>
+</nav>
+
+<main>
+  <div class="card">
+    <div class="mark">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M20 6 L9 17 L4 12" />
+      </svg>
+    </div>
+
+    <div class="eyebrow">Envío confirmado</div>
+    <h1>¡Gracias!<br/><em>Tu mensaje fue enviado.</em></h1>
+
+    <p class="lead">Hemos recibido tu información correctamente. <strong>Reyes Martínez</strong> la revisará personalmente y te contactará en los próximos días al correo que indicaste.</p>
+
+    <div class="next">
+      <div class="k">¿Qué sigue?</div>
+      <p>Te pedimos revisar tu bandeja de entrada —y la carpeta de spam, por si acaso— para no perder la respuesta. Gracias por tu confianza.</p>
+    </div>
+
+    <div class="actions">
+      <a class="btn-primary" href="index.html">Volver al inicio</a>
+      <a class="btn-ghost" href="test-eneagrama.html">Hacer el test de eneagrama →</a>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="inner">
+    <a href="index.html" style="border:0"><img src="assets/logo.png" alt="Reyes Martínez" /></a>
+    <div class="tag">Psicoterapia con cuerpo, presencia y profundidad.</div>
+    <div class="note">© 2026 Reyes Martínez Díaz</div>
+  </div>
+</footer>
+
+</body>
+</html>
